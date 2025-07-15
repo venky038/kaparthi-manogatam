@@ -21,6 +21,11 @@ YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 SHORTS_PLAYLIST_ID = os.getenv("SHORTS_PLAYLIST_ID")
 
+@app.get("/")
+def root():
+    return {"message": "Kaparthi Manogatam backend is running."}
+
+
 @app.get("/videos")
 def get_latest_videos():
     url = f"https://www.googleapis.com/youtube/v3/search?key={YOUTUBE_API_KEY}&channelId={CHANNEL_ID}&part=snippet,id&order=date&maxResults=50"
